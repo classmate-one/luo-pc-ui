@@ -1,0 +1,6 @@
+div {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: initial;
+}
