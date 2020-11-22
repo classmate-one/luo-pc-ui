@@ -2,11 +2,13 @@ import './assets/index.scss';
 import './assets/mini.css';
 // eslint-disable-next-line
 import url from './assets/icon1.png'
+import jpg from './assets/1.jpg'
 
 
 console.log(101)
 console.log(102)
-// console.log(url)
+console.log(url)
+console.log(jpg)
 console.log(process.env.NODE_ENV)
 
 //eslint-disable-next-line

@@ -31,10 +31,7 @@ module.exports = {
               postcssOptions: {
                 plugins: [
                   [
-                    "postcss-preset-env",
-                    {
-                      // Options
-                    },
+                    "postcss-preset-env"
                   ],
                 ],
               },
@@ -44,7 +41,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.png/,
+        test: /\.(png|jpg|gif|ico|icons)/,
         loader: 'url-loader',
         options: {
           limit: 8 * 1024,
@@ -79,18 +76,29 @@ module.exports = {
             ]
           }
         }
+      }, {
+        exclude: /\.(jpg|css|sass|html|jpg|png|gif)/,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'media'
+        }
       }
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/main.html'
-    }),
     new MiniCssExtractPlugin({
       filename: 'css/index.css'
     }),
     new OptimizeCssAssetsWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/main.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true
+      }
+    }),
     new ESLintWebpackPlugin({
+      fix: true
     })
   ],
 };
